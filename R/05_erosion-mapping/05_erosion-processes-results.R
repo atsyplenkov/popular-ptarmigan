@@ -43,11 +43,11 @@ giz_area <- 1.84
 # in m / yr
 rates <- 
   tibble(
-    `gullies` = 0.076,
+    `gullies` = 0.076, #!!!!
     `soil creep` = 0.0015,
     none = 0,
     `sheet wash` = 0.0015 + 0.0015, # since creep also applies here
-    `rockfalls` = 0.013
+    `rockfalls` = 0.013 #!!!!
   ) %>% 
   gather(type, rate)
 
