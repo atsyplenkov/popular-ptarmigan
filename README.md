@@ -12,3 +12,9 @@ codename(seed = "sediment budget of a small basin", type = "ubuntu")
 #> [1] "popular ptarmigan"
 ```
 
+# How to reproduce
+
+1. Make sure that R `4.4.3` and `{renv}` packages are installed
+2. Clone the repository and navigate to its directory in R
+3. Run `renv::restore()` to install all required packages
+4. The folder `workflow` contains all necessary steps to reproduce the results. Follow inner folders in order they are named to produce the results. Folder `src` contains additional functions that were written to support the analysis.
