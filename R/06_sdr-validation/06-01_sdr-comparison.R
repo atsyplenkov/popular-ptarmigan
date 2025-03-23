@@ -94,7 +94,7 @@ sdr_comparison_plot <-
   sdr_plot_df %>%
   ggplot2::ggplot(ggplot2::aes(y = method, x = SDR)) +
   ggdist::stat_halfeye(ggplot2::aes(
-    fill = ggplot2::stat(ggdist::cut_cdf_qi(
+    fill = ggplot2::after_stat(ggdist::cut_cdf_qi(
       cdf,
       .width = c(.66, .8, .95),
       labels = scales::percent_format()
@@ -114,18 +114,10 @@ sdr_comparison_plot <-
     fill = "CI"
   ) +
   ggplot2::theme(
-    legend.position = c(0.9, 0.8),
+    legend.position = "inside",
+    legend.position.inside = c(0.9, 0.8),
     legend.direction = "vertical"
   )
-
-ggplot2::ggsave(
-  "R/06_sdr-validation/figures",
-  sdr_comparison_plot,
-  dpi = 500,
-  w = 7,
-  h = 5
-)
-
 
 # 4) Are the SDR significantly different or not? --------------------------
 # Wilcox test
