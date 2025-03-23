@@ -40,6 +40,8 @@ dem <-
 
 # SDR
 sdr_corr <-
+  #FIXME:
+  # replace SDR
   terra::rast(
     here::here(
       "R",
