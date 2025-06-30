@@ -1,0 +1,13 @@
+file: giz_r.csv
+file_size: 437
+pin_hash: bed18aae7bdd7b8a
+type: csv
+title: 'giz_r: a pinned 5 x 5 data frame'
+description: 'Rainfall Erosivity (in SI values) predicted for the Gitche-Gizhgit Catchment
+  using the empirical relationship between Modified Fournier Index and measured Rainfall
+  Intensity during the 1961:1983 period. Listed mean and lower/upper confidence intervals
+  derived from the linear model: R = -65.9 + 8.82*MFI'
+tags: ~
+urls: ~
+created: 20250630T001137Z
+api_version: 1
