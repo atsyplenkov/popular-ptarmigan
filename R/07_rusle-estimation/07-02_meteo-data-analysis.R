@@ -1,6 +1,3 @@
-#FIXME:
-# Check that all paths are working
-
 library(dplyr)
 library(purrr)
 library(tidyr)
@@ -572,6 +569,21 @@ r_table <- giz_erosivity %>%
   dplyr::rename_all(~ stringr::str_to_sentence(.)) %>%
   dplyr::mutate_if(is.numeric, ~ atslib::smart_round(.))
 
+# Panagos' Rainfall Erosivity --------------------------------------------
+glored <-
+  ws |>
+  sf::st_transform(6931) |>
+  sf::st_buffer(500) |>
+  sf::st_transform(4326) |> 
+  terra::vect() |>
+  rusleR::get_glored(warp = TRUE)
+
+library(exactextractr)
+
+# Get GLORED summary stats
+exact_extract(glored, ws, fun = "mean")
+exact_extract(glored, ws, "quantile", quantiles = c(0.025, 0.975))
+
 # Save --------------------------------------------------------------------
 save("giz_erosivity", file = here("data", "tidy", "giz_r.Rdata"))
 
@@ -602,7 +614,6 @@ pins::pin_write(
      for the region"
   )
 )
-
 
 # Save figures and tables ------------------------------------------------
 fs::dir_create("figures/supplementary")
