@@ -1,0 +1,10 @@
+file: ncdc_tc_table.csv
+file_size: 646
+pin_hash: 93b340a00525d1e0
+type: csv
+title: 'ncdc_tc_table: a pinned 6 x 9 data frame'
+description: TerraClimate quality assessment of the daily rainfall sums for the region
+tags: ~
+urls: ~
+created: 20250630T002339Z
+api_version: 1

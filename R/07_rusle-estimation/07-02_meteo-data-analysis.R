@@ -592,13 +592,23 @@ pins::pin_write(
   )
 )
 
+pins::pin_write(
+  board = databoard,
+  x = ncdc_tc_table,
+  name = "ncdc_tc_table",
+  type = "csv",
+  description = stringr::str_squish(
+    "TerraClimate quality assessment of the daily rainfall sums
+     for the region"
+  )
+)
+
 
 # Save figures and tables ------------------------------------------------
 fs::dir_create("figures/supplementary")
-fs::dir_create("tables/supplementary")
 
 ggsave(
-  filename = here("figures", "fig02_r-mfi_plt.png"),
+  filename = here("figures", "supplementary", "r-mfi_plt.png"),
   epo_mfi_plot,
   dpi = 500,
   w = 7,
@@ -607,7 +617,7 @@ ggsave(
 
 # Figure 4.1
 ggsave(
-  filename = here("figures", "fig04-1_r_timeseries.png"),
+  filename = here("figures", "r_timeseries.png"),
   giz_r_timeseries,
   dpi = 500,
   w = 8,
@@ -616,15 +626,9 @@ ggsave(
 
 # Figure S1
 ggsave(
-  filename = here("figures", "figs1_ncdc_tc_plt.png"),
+  filename = here("figures", "supplementary", "ncdc_tc_plt.png"),
   ncdc_tc_plot,
   dpi = 500,
   w = 9,
   h = 8
 )
-
-# Table S1
-write_xlsx(ncdc_tc_table, path = here("tables", "table_s1.xlsx"))
-
-# Table 4.1
-write_xlsx(r_table, path = here("tables", "table_4-1.xlsx"))
