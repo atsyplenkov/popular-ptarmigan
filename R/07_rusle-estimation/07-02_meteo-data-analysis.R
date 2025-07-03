@@ -581,8 +581,8 @@ glored <-
 library(exactextractr)
 
 # Get GLORED summary stats
-exact_extract(glored, ws, fun = "mean")
-exact_extract(glored, ws, "quantile", quantiles = c(0.025, 0.975))
+exactextractr::exact_extract(glored, ws, fun = "mean")
+exactextractr::exact_extract(glored, ws, "quantile", quantiles = c(0.025, 0.975))
 
 # Save --------------------------------------------------------------------
 save("giz_erosivity", file = here("data", "tidy", "giz_r.Rdata"))
